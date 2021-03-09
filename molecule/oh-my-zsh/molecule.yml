@@ -1,0 +1,25 @@
+---
+scenario:
+  name: oh-my-zsh
+  test_sequence:
+    - create
+    - converge
+    - idempotence
+    - verify
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: geerlingguy/docker-${MOLECULE_DISTRO}-ansible:latest
+    command: ""
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+  log: true
+  env:
+    ANSIBLE_ROLES_PATH: "../../roles"
+verifier:
+  name: testinfra
