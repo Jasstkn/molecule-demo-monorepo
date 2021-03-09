@@ -1,6 +1,6 @@
 import pytest
 
-# Test zsh, oh-my-zsh
+
 @pytest.mark.parametrize('username', [
     'test_usr1',
     'test_usr2',
@@ -39,25 +39,12 @@ def test_oh_my_zsh_config(host, username, theme, plugins):
     assert zshrc.contains(plugins)
 
 
-# Test default installation
-@pytest.mark.parametrize('username,theme,plugins,custom_plugins', [
-    ('test_usr6',
-    'powerlevel10k',
-    'git',
-    'zsh-syntax-highlighting zsh-autosuggestions' )
-])
-def test_antigen_installation(host, username, theme, plugins, custom_plugins):
-    zshrc = host.file('/home/' + username + '/.zshrc')
-    antigen = host.file('/home/' + username + '/antigen.zsh')
-    assert zshrc.exists
-    assert zshrc.is_file
-    assert antigen.exists
-    assert antigen.is_file
-    assert zshrc.user == username
-    assert zshrc.group in [username, 'users']
-    assert zshrc.contains(theme)
-    assert zshrc.contains(plugins)
-    zshrc.contains
-    # check installation via antigen for custom plugins
-    for plugin in custom_plugins.split(" "):
-        assert zshrc.contains("antigen bundle " + "zsh-users/" +plugin )
+def test_console_setup(host):
+    # console-setup is Debian family specific
+    if host.file('/etc/debian_version').exists:
+        setup = host.file('/etc/default/console-setup')
+        assert setup.exists
+        assert setup.is_file
+        assert setup.user == 'root'
+        assert setup.group == 'root'
+        assert setup.contains('CHARMAP="UTF-8"')
