@@ -1,4 +1,29 @@
 [[package]]
+name = "ansible"
+version = "3.0.0"
+description = "Radically simple IT automation"
+category = "main"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+ansible-base = ">=2.10.5,<2.11"
+
+[[package]]
+name = "ansible-base"
+version = "2.10.6"
+description = "Radically simple IT automation"
+category = "main"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.dependencies]
+cryptography = "*"
+jinja2 = "*"
+packaging = "*"
+PyYAML = "*"
+
+[[package]]
 name = "arrow"
 version = "1.0.3"
 description = "Better dates & times for Python"
@@ -731,9 +756,15 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.6,<4.0"
-content-hash = "0ba59ba286d802b885f5f9b99231ad4ffd3cdaec03403d0a1c1b2670a4a3f327"
+content-hash = "d47c053cb5b81f39a07fd94804e517e74f3cd0901af18e07830e483b0f47c83d"
 
 [metadata.files]
+ansible = [
+    {file = "ansible-3.0.0.tar.gz", hash = "sha256:843aa807813318b0c8a6684a2895c74a4ccfb3c01d2bb41a53856b2434ebaaec"},
+]
+ansible-base = [
+    {file = "ansible-base-2.10.6.tar.gz", hash = "sha256:c6b3bc3dc83ee510357cb7afc8c557c05ce38f6b40e9bc9dab13551b2944dfd4"},
+]
 arrow = [
     {file = "arrow-1.0.3-py3-none-any.whl", hash = "sha256:3515630f11a15c61dcb4cdd245883270dd334c83f3e639824e65a4b79cc48543"},
     {file = "arrow-1.0.3.tar.gz", hash = "sha256:399c9c8ae732270e1aa58ead835a79a40d7be8aa109c579898eb41029b5a231d"},

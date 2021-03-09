@@ -62,7 +62,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install ansible==2.9.1 ansible-lint molecule molecule-docker flake8 pytest pytest-testinfra
+          pip install ansible==3.0.0 ansible-lint molecule molecule-docker flake8 pytest pytest-testinfra
       - name: Molecule test
         run: |
           echo $MOLECULE_DISTRO && molecule test -s $MOLECULE_SCENARIO
