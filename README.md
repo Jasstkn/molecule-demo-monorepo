@@ -3,36 +3,38 @@
 ## Run tests
 
 Run tests again all scenarios
-    ```bash
-    make test
-    ```
+
+```bash
+make test
+```
 
 Run test again specific scenario
-    ```bash
-    make test
-    ```
+
+```bash
+make test
+```
 
 ## Local usage
 
 1. Install [poetry][1]
 2. Install venv
 3. Create a virtual environment
-    ```bash
-    virtualenv .venv
-    ```
+```bash
+virtualenv .venv
+```
 4. Activate virtual environment
-    ```bash
-    source .venv/bin/activate
-    ```
+```bash
+source .venv/bin/activate
+```
 5. Install dependencies via poetry
-    ```bash
-    poetry install
-    ```
+```bash
+poetry install
+```
 
-    or using Makefile
-    ```
-    make install_dependencies
-    ```
+or using Makefile
+```
+make install_dependencies
+```
 
 [1]: https://python-poetry.org/docs/#installation
 [2]: https://virtualenv.pypa.io/en/latest/installation.html
