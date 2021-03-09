@@ -7,6 +7,36 @@ on:
     types: ["opened"]
 
 jobs:
+  lint:
+    name: molecule test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - ubuntu2004
+        scenario:
+          - lint
+      fail-fast: false
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+
+      - name: Python installation
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install ansible==2.9.1 ansible-lint molecule molecule-docker flake8 pytest pytest-testinfra
+      - name: Molecule test
+        run: |
+          echo $MOLECULE_DISTRO && molecule test -s lint
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}
+
   molecule-test:
     name: molecule test
     runs-on: ubuntu-latest
@@ -16,7 +46,6 @@ jobs:
           - ubuntu2004
           - ubuntu1804
         scenario:
-          - lint
           - oh-my-zsh
       fail-fast: false
     steps:
