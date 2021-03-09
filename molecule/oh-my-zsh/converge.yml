@@ -25,7 +25,6 @@
 
   roles:
     - role: oh-my-zsh
-    - role: ansible-role-oh-my-zsh
       oh_my_zsh_theme: test_theme1
       oh_my_zsh_plugins:
         - test_plugin1
