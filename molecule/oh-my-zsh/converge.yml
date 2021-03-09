@@ -21,7 +21,16 @@
         - test_usr3
         - test_usr4
         - test_usr5
-        - test_usr6
+
+    - name: install console-setup file
+      become: yes
+      copy:
+        src: tests/console-setup.sh
+        dest: /etc/default/console-setup
+        force: no
+        owner: root
+        group: root
+        mode: 'u=rwx,go=r'
 
   roles:
     - role: oh-my-zsh

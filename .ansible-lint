@@ -4,7 +4,7 @@ exclude_paths:
 - .vscode/
 - molecule
 - .cache/
-- vars/postgres_secrets.yml
+- .moleculew/
 
 # parseable: true
 # quiet: true
