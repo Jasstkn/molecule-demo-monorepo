@@ -11,7 +11,7 @@ make test
 Run test again specific scenario
 
 ```bash
-make test
+make scenario=lint test-scenario
 ```
 
 ## Local usage
