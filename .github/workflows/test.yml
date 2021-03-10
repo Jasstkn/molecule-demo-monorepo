@@ -38,6 +38,7 @@ jobs:
       #     pip install ansible==2.9.1 ansible-lint molecule molecule-docker flake8 pytest pytest-testinfra
       - name: Molecule test
         run: |
+          source $VENV
           echo $MOLECULE_DISTRO && molecule test -s lint
         env:
           PY_COLORS: '1'
