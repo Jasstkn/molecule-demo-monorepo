@@ -1,5 +1,6 @@
 # .ansible-lint
 exclude_paths:
+- .venv/
 - .github/
 - .vscode/
 - molecule
