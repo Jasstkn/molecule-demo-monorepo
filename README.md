@@ -1,5 +1,7 @@
 # molecule-demo-monorepo
 
+Related article on [Medium](https://mariarti0644.medium.com/using-ansible-molecule-to-test-roles-in-monorepo-5f711c716666)
+
 ## Run tests
 
 Run tests again all scenarios
