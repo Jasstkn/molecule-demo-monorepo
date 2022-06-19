@@ -1,0 +1,15 @@
+version: '3'
+
+env:
+  MOLECULE_DISTRO: "{{.MOLECULE_DISTRO | default \"ubuntu2004\" }}"
+
+tasks:
+  install_deps:
+    cmds:
+    - poetry install
+  test:
+    cmds:
+    - MOLECULE_DISTRO="{{.MOLECULE_DISTRO}}" molecule test --all
+  test-scenario:
+    cmds:
+    - MOLECULE_DISTRO="{{.MOLECULE_DISTRO}}" molecule test -s {{.SCENARIO}}
